@@ -7,24 +7,24 @@ directory_path = os.path.dirname(constants.path_to_controllers)
 if directory_path not in sys.path:
     sys.path.append(directory_path)
 
-from QArm_traj_controllers import CartesianJacobianController, JointSpaceController, LetterTrajectoryController
+from QArm_traj_controllers import CartesianJacobianController, JointSpaceController, LetterTrajectoryController # type: ignore
 
 
 def main():
     # Define arbitrary waypoints: [X, Y, Z, Target Time (seconds)]
     # Note: For the Jacobian Spline to work properly, time MUST strictly increase.
     # Feel free to add or remove points as you see fit, note that if it violates joint or workspace limits, the script will terminate
-    trajectory_points = [
-        [0.05, 0.0, 0.8, 0.0],
-        [0.0, 0.7, 0.35, 6.0],
-        [0.7, 0.0, 0.2, 12.0],
-        [-0.5, -0.25, 0.3, 18.0]
-    ]
-
     # trajectory_points = [
-    #     [0.1, 0.0, 0.80, 0.0],
-    #     [0.73, 0.0, 0.09, 6.0]
+    #     [0.05, 0.0, 0.8, 0.0],
+    #     [0.0, 0.7, 0.35, 6.0],
+    #     [0.7, 0.0, 0.2, 12.0],
+    #     [-0.5, -0.25, 0.3, 18.0]
     # ]
+
+    trajectory_points = [
+        [0.1, 0.0, 0.80, 0.0],
+        [0.73, 0.0, 0.09, 6.0]
+    ]
 
     #! Check for waypoints and trajectories outside workspace, but esspeically in the ground
 
